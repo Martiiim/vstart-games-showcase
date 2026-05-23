@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useTranslation } from "react-i18next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Badge } from "@/components/ui/badge";
@@ -18,33 +19,31 @@ export const Route = createFileRoute("/games")({
 });
 
 function Games() {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
       <section className="container mx-auto px-4 py-16">
-        <h1 className="font-display text-4xl text-foreground sm:text-5xl">Our <span className="text-primary text-glow">Games</span></h1>
-        <p className="mt-4 max-w-2xl text-muted-foreground">Worlds we've built, heroes we've raised. Here's what we're playing.</p>
+        <h1 className="font-display text-4xl text-foreground sm:text-5xl">{t("games.title1")} <span className="text-primary text-glow">{t("games.titleAccent")}</span></h1>
+        <p className="mt-4 max-w-2xl text-muted-foreground">{t("games.subtitle")}</p>
 
         <article className="mt-12 overflow-hidden rounded-2xl border border-border bg-card shadow-card">
           <img src={heroImg} alt="Simone to the Rescue" className="aspect-video w-full object-cover" width={1536} height={1024} />
           <div className="space-y-4 p-8">
             <div className="flex flex-wrap items-center gap-2">
-              <Badge className="bg-primary text-primary-foreground">Flagship</Badge>
-              <Badge variant="outline">Action-Platformer</Badge>
-              <Badge variant="outline">Single Player</Badge>
+              <Badge className="bg-primary text-primary-foreground">{t("games.flagship")}</Badge>
+              <Badge variant="outline">{t("games.actionPlatformer")}</Badge>
+              <Badge variant="outline">{t("games.singlePlayer")}</Badge>
             </div>
             <h2 className="font-display text-2xl text-foreground sm:text-3xl">Simone to the Rescue</h2>
-            <p className="text-muted-foreground">
-              A bold and colorful platformer following Simone on a quest to save friends scattered across surreal worlds.
-              Run, jump, and unleash special powers through hand-crafted levels packed with secrets, bosses, and charm.
-            </p>
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Coming Soon</p>
+            <p className="text-muted-foreground">{t("games.simoneDesc")}</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary">{t("games.comingSoon")}</p>
           </div>
         </article>
 
         <div className="mt-10 rounded-2xl border border-dashed border-border p-10 text-center">
-          <p className="font-display text-sm text-muted-foreground">More games in development</p>
-          <p className="mt-2 text-xs text-muted-foreground/70">Follow us on social to be the first to know.</p>
+          <p className="font-display text-sm text-muted-foreground">{t("games.moreDev")}</p>
+          <p className="mt-2 text-xs text-muted-foreground/70">{t("games.followSocial")}</p>
         </div>
       </section>
       <SiteFooter />
