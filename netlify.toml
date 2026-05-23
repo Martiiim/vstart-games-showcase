@@ -1,14 +1,8 @@
 [build]
-  command = "npm run build"
+  command = "npm run build && cp index.html dist/client/"
   publish = "dist/client"
-  functions = "dist/server"
-
-[functions]
-  external_node_modules = ["*"]
-  node_bundler = "esbuild"
 
 [[redirects]]
   from = "/*"
-  to = "/.netlify/functions/server"
+  to = "/index.html"
   status = 200
-  force = true
