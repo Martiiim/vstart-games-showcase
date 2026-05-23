@@ -26,11 +26,11 @@ function Contact() {
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
-      <section className="container mx-auto px-4 py-16">
-        <h1 className="font-display text-4xl text-foreground sm:text-5xl">{t("contact.title1")} <span className="text-primary text-glow">{t("contact.titleAccent")}</span></h1>
-        <p className="mt-4 max-w-2xl text-muted-foreground">{t("contact.subtitle")}</p>
+      <section className="container mx-auto px-4 py-12 sm:py-16">
+        <h1 className="font-display text-3xl text-foreground sm:text-4xl lg:text-5xl">{t("contact.title1")} <span className="text-primary text-glow">{t("contact.titleAccent")}</span></h1>
+        <p className="mt-4 max-w-2xl text-sm text-muted-foreground sm:text-base">{t("contact.subtitle")}</p>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:mt-12 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {channels.map(({ icon: Icon, label, value, href }) => (
             <a
               key={label}
