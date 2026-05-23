@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useTranslation } from "react-i18next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Heart, Lightbulb, Users } from "lucide-react";
@@ -15,25 +16,21 @@ export const Route = createFileRoute("/about")({
   component: About,
 });
 
-const values = [
-  { icon: Heart, title: "Made with Love", desc: "Every pixel and line of code is crafted with care and intention." },
-  { icon: Lightbulb, title: "Bold Ideas", desc: "We chase fresh concepts over safe formulas — even when it's harder." },
-  { icon: Users, title: "Player First", desc: "Our community shapes the games we build. We listen, iterate, deliver." },
-];
-
 function About() {
+  const { t } = useTranslation();
+  const values = [
+    { icon: Heart, title: t("about.love"), desc: t("about.loveDesc") },
+    { icon: Lightbulb, title: t("about.bold"), desc: t("about.boldDesc") },
+    { icon: Users, title: t("about.player"), desc: t("about.playerDesc") },
+  ];
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
       <section className="container mx-auto px-4 py-16">
-        <h1 className="font-display text-4xl text-foreground sm:text-5xl">About <span className="text-primary text-glow">Us</span></h1>
+        <h1 className="font-display text-4xl text-foreground sm:text-5xl">{t("about.title1")} <span className="text-primary text-glow">{t("about.titleAccent")}</span></h1>
         <div className="mt-8 max-w-3xl space-y-5 text-lg text-muted-foreground">
-          <p>
-            Vstart Games is an independent studio born from a love of classic platformers and a drive to create new adventures for a new generation of players.
-          </p>
-          <p>
-            We're small, scrappy, and ambitious — focused on building memorable worlds, lovable characters, and gameplay that feels great in your hands.
-          </p>
+          <p>{t("about.p1")}</p>
+          <p>{t("about.p2")}</p>
         </div>
 
         <div className="mt-16 grid gap-6 md:grid-cols-3">
