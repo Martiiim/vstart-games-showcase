@@ -15,6 +15,12 @@ if (typeof globalThis.addEventListener === "function") {
   );
 }
 
+// Also capture Node.js process-level errors when running in a Node environment
+if (typeof process !== "undefined" && typeof (process as any).on === "function") {
+  (process as any).on("uncaughtException", (err: unknown) => record(err));
+  (process as any).on("unhandledRejection", (reason: unknown) => record(reason));
+}
+
 export function consumeLastCapturedError(): unknown {
   if (!lastCapturedError) return undefined;
   if (Date.now() - lastCapturedError.at > TTL_MS) {

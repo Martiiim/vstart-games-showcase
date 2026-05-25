@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useTranslation } from "react-i18next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Instagram, Facebook, Mail } from "lucide-react";
@@ -17,18 +16,17 @@ export const Route = createFileRoute("/contact")({
 });
 
 function Contact() {
-  const { t } = useTranslation();
   const channels = [
-    { icon: Mail, label: t("contact.email"), value: "vstart.games@gmail.com", href: "mailto:vstart.games@gmail.com" },
-    { icon: Instagram, label: t("contact.instagram"), value: "@vstart.games", href: "https://instagram.com/vstart.games" },
-    { icon: Facebook, label: t("contact.facebook"), value: "Vstart Games", href: "https://www.facebook.com/share/1E8BZY37vh/" },
+    { icon: Mail, label: "Email", value: "vstart.games@gmail.com", href: "mailto:vstart.games@gmail.com" },
+    { icon: Instagram, label: "Instagram", value: "@vstart.games", href: "https://instagram.com/vstart.games" },
+    { icon: Facebook, label: "Facebook", value: "Vstart Games", href: "https://www.facebook.com/share/1E8BZY37vh/" },
   ];
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
       <section className="container mx-auto px-4 py-12 sm:py-16">
-        <h1 className="font-display text-3xl text-foreground sm:text-4xl lg:text-5xl">{t("contact.title1")} <span className="text-primary text-glow">{t("contact.titleAccent")}</span></h1>
-        <p className="mt-4 max-w-2xl text-sm text-muted-foreground sm:text-base">{t("contact.subtitle")}</p>
+        <h1 data-translate-key="contact.title" className="font-display text-3xl text-foreground sm:text-4xl lg:text-5xl">Get in Touch</h1>
+        <p data-translate-key="contact.lead" className="mt-4 max-w-2xl text-sm text-muted-foreground sm:text-base">Got a question, a fan letter, or a business inquiry? We'd love to hear from you.</p>
 
         <div className="mt-10 grid gap-4 sm:mt-12 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {channels.map(({ icon: Icon, label, value, href }) => (
@@ -42,8 +40,8 @@ function Contact() {
               <div className="inline-flex w-fit rounded-lg bg-primary/10 p-3 transition-colors group-hover:bg-primary/20">
                 <Icon className="h-6 w-6 text-primary" />
               </div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">{label}</p>
-              <p className="font-display text-sm text-foreground">{value}</p>
+              <p data-translate-key={`contact.channel.${label}.label`} className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">{label}</p>
+              <p data-translate-key={`contact.channel.${label}.value`} className="font-display text-sm text-foreground">{value}</p>
             </a>
           ))}
         </div>

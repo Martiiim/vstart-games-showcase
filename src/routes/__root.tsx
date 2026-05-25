@@ -1,4 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useEffect } from "react";
 import {
   Outlet,
   Link,
@@ -9,7 +10,6 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
-import "@/lib/i18n";
 
 function NotFoundComponent() {
   return (
@@ -112,11 +112,40 @@ function RootShell({ children }: { children: React.ReactNode }) {
   );
 }
 
+function GoogleTranslateWidget() {
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    if (!document.querySelector(".gtranslate_wrapper")) {
+      const wrapper = document.createElement("div");
+      wrapper.className = "gtranslate_wrapper";
+      document.body.insertBefore(wrapper, document.body.firstChild);
+    }
+
+    (window as any).gtranslateSettings = {
+      default_language: "en",
+      detect_browser_language: true,
+      languages: ["en", "fr", "it", "es", "pt"],
+      wrapper_selector: ".gtranslate_wrapper",
+    };
+
+    if (!document.querySelector('script[src*="gtranslate.net/widgets/latest/float.js"]')) {
+      const script = document.createElement("script");
+      script.src = "https://cdn.gtranslate.net/widgets/latest/float.js";
+      script.defer = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
+  return null;
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
+      <GoogleTranslateWidget />
       <Outlet />
     </QueryClientProvider>
   );
