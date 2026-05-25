@@ -1,9 +1,7 @@
 import { Instagram, Facebook, Mail } from "lucide-react";
-import { useTranslation } from "react-i18next";
 import logo from "@/assets/vstart-logo.png";
 
 export function SiteFooter() {
-  const { t } = useTranslation();
   return (
     <footer className="border-t border-border/50 bg-card/30 mt-24">
       <div className="container mx-auto px-4 py-12">
@@ -21,7 +19,7 @@ export function SiteFooter() {
               <Mail className="h-5 w-5" />
             </a>
           </div>
-          <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} Vstart Games. {t("footer.rights")}</p>
+          <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} Vstart Games. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -9,7 +9,6 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
-import "@/lib/i18n";
 
 function NotFoundComponent() {
   return (
