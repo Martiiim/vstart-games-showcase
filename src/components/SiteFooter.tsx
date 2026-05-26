@@ -19,11 +19,7 @@ export function SiteFooter() {
               <Mail className="h-5 w-5" />
             </a>
           </div>
-<<<<<<< HEAD
           <p data-translate-key="footer.copyright" className="text-xs text-muted-foreground">© {new Date().getFullYear()} Vstart Games. All rights reserved.</p>
-=======
-          <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} Vstart Games. All rights reserved.</p>
->>>>>>> refs/remotes/origin/main
         </div>
       </div>
     </footer>
