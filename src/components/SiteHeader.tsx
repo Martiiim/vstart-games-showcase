@@ -2,6 +2,10 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/vstart-logo.png";
+<<<<<<< HEAD
+=======
+import { GoogleTranslate } from "@/components/GoogleTranslate";
+>>>>>>> refs/remotes/origin/main
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -23,10 +27,18 @@ export function SiteHeader() {
           <Link to="/games" className={linkCls}>Games</Link>
           <Link to="/about" className={linkCls}>About</Link>
           <Link to="/contact" className={linkCls}>Contact</Link>
+<<<<<<< HEAD
+=======
+          <GoogleTranslate />
+>>>>>>> refs/remotes/origin/main
         </nav>
 
         {/* Mobile controls */}
         <div className="flex items-center gap-2 md:hidden">
+<<<<<<< HEAD
+=======
+          <GoogleTranslate />
+>>>>>>> refs/remotes/origin/main
           <button
             type="button"
             aria-label="Toggle menu"
@@ -43,7 +55,11 @@ export function SiteHeader() {
       {open && (
         <nav className="border-t border-border/50 bg-background/95 px-4 py-4 md:hidden">
           <ul className="flex flex-col gap-3 text-sm font-semibold uppercase tracking-wider">
+<<<<<<< HEAD
             <li><Link to="/" activeOptions={{ exact: true }} className={linkCls + "notranslate"} onClick={close}>Home</Link></li>
+=======
+            <li><Link to="/" activeOptions={{ exact: true }} className={linkCls} onClick={close}>Home</Link></li>
+>>>>>>> refs/remotes/origin/main
             <li><Link to="/games" className={linkCls} onClick={close}>Games</Link></li>
             <li><Link to="/about" className={linkCls} onClick={close}>About</Link></li>
             <li><Link to="/contact" className={linkCls} onClick={close}>Contact</Link></li>

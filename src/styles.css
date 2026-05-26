@@ -142,6 +142,7 @@
 }
 .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
 
+<<<<<<< HEAD
 .games-gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -180,3 +181,46 @@ img[alt*="simone"] {
 }
 
 
+=======
+/* Google Translate widget — styled to match the previous LanguageSwitcher */
+.gtranslate-wrapper .goog-te-gadget {
+  font-family: var(--font-body, inherit) !important;
+  font-size: 0 !important;
+  color: transparent !important;
+  line-height: 1 !important;
+}
+.gtranslate-wrapper .goog-te-gadget > span { display: none !important; }
+.gtranslate-wrapper .goog-te-gadget .goog-te-combo {
+  margin: 0 !important;
+  padding: 0.375rem 0.625rem 0.375rem 1.875rem !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.075em;
+  background-color: transparent !important;
+  color: var(--muted-foreground) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 0.375rem !important;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  /* Globe icon (lucide-style) on the left */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23a1a1aa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><path d='M2 12h20'/><path d='M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: 0.5rem center;
+  background-size: 0.875rem 0.875rem;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.gtranslate-wrapper .goog-te-gadget .goog-te-combo:hover {
+  border-color: var(--primary) !important;
+  color: var(--primary) !important;
+}
+.goog-te-banner-frame.skiptranslate,
+.goog-te-gadget-icon { display: none !important; }
+body { top: 0 !important; }
+.goog-tooltip, .goog-tooltip:hover, .goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+>>>>>>> refs/remotes/origin/main
