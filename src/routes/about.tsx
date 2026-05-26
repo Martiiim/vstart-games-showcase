@@ -22,29 +22,19 @@ const values = [
 ];
 
 function About() {
-<<<<<<< HEAD
   const values = [
     { icon: Heart, title: "Made with Love", desc: "Every pixel and line of code is crafted with care and intention." },
     { icon: Lightbulb, title: "Bold Ideas", desc: "We chase fresh concepts over safe formulas — even when it\'s harder." },
     { icon: Users, title: "Player First", desc: "Our community shapes the games we build. We listen, iterate, deliver." },
   ];
-=======
->>>>>>> refs/remotes/origin/main
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
       <section className="container mx-auto px-4 py-12 sm:py-16">
-<<<<<<< HEAD
         <h1 data-translate-key="about.title" className="font-display text-3xl text-foreground sm:text-4xl lg:text-5xl">About Us</h1>
         <div className="mt-6 max-w-3xl space-y-4 text-base text-muted-foreground sm:mt-8 sm:space-y-5 sm:text-lg">
           <p data-translate-key="about.p1">Vstart Games is an independent studio born from a love of classic platformers and a drive to create new adventures for a new generation of players.</p>
           <p data-translate-key="about.p2">We\'re small, scrappy, and ambitious — focused on building memorable worlds, lovable characters, and gameplay that feels great in your hands.</p>
-=======
-        <h1 className="font-display text-3xl text-foreground sm:text-4xl lg:text-5xl">About <span className="text-primary text-glow">Us</span></h1>
-        <div className="mt-6 max-w-3xl space-y-4 text-base text-muted-foreground sm:mt-8 sm:space-y-5 sm:text-lg">
-          <p>Vstart Games is an independent studio born from a love of classic platformers and a drive to create new adventures for a new generation of players.</p>
-          <p>We're small, scrappy, and ambitious — focused on building memorable worlds, lovable characters, and gameplay that feels great in your hands.</p>
->>>>>>> refs/remotes/origin/main
         </div>
 
         <div className="mt-12 grid gap-5 sm:mt-16 sm:gap-6 sm:grid-cols-2 md:grid-cols-3">
