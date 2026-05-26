@@ -43,7 +43,7 @@ export function SiteHeader() {
       {open && (
         <nav className="border-t border-border/50 bg-background/95 px-4 py-4 md:hidden">
           <ul className="flex flex-col gap-3 text-sm font-semibold uppercase tracking-wider">
-            <li><Link to="/" activeOptions={{ exact: true }} className={linkCls + "notranslate"} onClick={close}>Home</Link></li>
+            <li><Link to="/" activeOptions={{ exact: true }} className={linkCls} onClick={close}>Home</Link></li>
             <li><Link to="/games" className={linkCls} onClick={close}>Games</Link></li>
             <li><Link to="/about" className={linkCls} onClick={close}>About</Link></li>
             <li><Link to="/contact" className={linkCls} onClick={close}>Contact</Link></li>
