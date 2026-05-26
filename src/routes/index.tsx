@@ -62,8 +62,8 @@ function Index() {
       {/* Featured game */}
       <section className="container mx-auto px-4 py-14 sm:py-20">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-10">
-          <div className="relative overflow-hidden rounded-2xl border border-border shadow-card">
-            <img src={heroImg} alt="Simone to the Rescue key art" className="aspect-video w-full object-cover" width={1536} height={1024} />
+          <div className="relative overflow-hidden rounded-2xl border border-border shadow-card bg-muted">
+            <img src={heroImg} alt="Simone to the Rescue key art" className="h-auto w-full object-contain" width={1536} height={1024} />
           </div>
           <div className="flex flex-col gap-5">
             <p data-translate-key="featured.label" className="text-xs font-bold uppercase tracking-widest text-primary">Featured Game</p>

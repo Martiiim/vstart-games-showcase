@@ -2,7 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Badge } from "@/components/ui/badge";
+import { ImageGallery } from "react-image-grid-gallery";
+import "react-image-grid-gallery/style.css";
 import heroImg from "@/assets/simone-hero.png";
+import fightImg from "@/assets/simone-fight.png";
+import forestImg from "@/assets/simone-forest.png";
+import combatArtsImg from "@/assets/combat-arts.png";
 
 export const Route = createFileRoute("/games")({
   head: () => ({
@@ -18,6 +23,12 @@ export const Route = createFileRoute("/games")({
 });
 
 function Games() {
+  const simoneImages = [
+    { id: "1", src: heroImg, alt: "Simone to the Rescue - Hero" },
+    { id: "2", src: fightImg, alt: "Simone to the Rescue - Fight" },
+    { id: "3", src: forestImg, alt: "Simone to the Rescue - Forest" },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
@@ -26,7 +37,11 @@ function Games() {
         <p data-translate-key="games.lead" className="mt-4 max-w-2xl text-sm text-muted-foreground sm:text-base">Worlds we've built, heroes we've raised. Here's what we're playing.</p>
 
         <article className="mt-10 overflow-hidden rounded-2xl border border-border bg-card shadow-card sm:mt-12">
-          <img src={heroImg} alt="Simone to the Rescue" className="aspect-video w-full object-cover" width={1536} height={1024} />
+          <div className="flex justify-center p-5 sm:p-8">
+            <div className="w-full max-w-3xl">
+              <ImageGallery imagesData={simoneImages} columnCount="auto" gapSize={12} columnWidth={280} />
+            </div>
+          </div>
           <div className="space-y-4 p-5 sm:p-8">
             <div className="flex flex-wrap items-center gap-2">
               <Badge className="bg-primary text-primary-foreground">Flagship</Badge>
@@ -36,6 +51,24 @@ function Games() {
             <h2 data-translate-key="games.feature.name" className="font-display text-xl text-foreground sm:text-2xl lg:text-3xl">Simone to the Rescue</h2>
             <p data-translate-key="games.feature.desc" className="text-sm text-muted-foreground sm:text-base">When Simone and Marcelo arrive in Australia, their road trip takes a dark turn. An unknown gang attacks and captures Marcelo, leaving Simone to wake and discover him gone—but not without clues. As Simone embarks on a desperate rescue mission across surreal worlds, the gang continually moves their location and hires dangerous villains to stop her. With enemies like the mysterious Gabriel standing in her way, Simone must uncover the truth: was this all just an experiment to test her true potential?</p>
             <p data-translate-key="games.feature.badge" className="text-xs font-semibold uppercase tracking-widest text-primary sm:text-sm">Coming Soon</p>
+          </div>
+        </article>
+
+        <article className="mt-10 overflow-hidden rounded-2xl border border-border bg-card shadow-card sm:mt-12">
+          <div className="grid gap-6 lg:grid-cols-2 lg:items-center p-5 sm:p-8">
+            <div className="order-2 lg:order-1 space-y-4">
+              <div className="flex flex-wrap items-center gap-2">
+                <Badge variant="outline">Fighting Game</Badge>
+                <Badge variant="outline">Single Player</Badge>
+                <Badge variant="outline">Cyberpunk</Badge>
+              </div>
+              <h2 className="font-display text-xl text-foreground sm:text-2xl lg:text-3xl">Combat Arts: The last Master</h2>
+              <p className="text-sm text-muted-foreground sm:text-base">In Nova Shambhala, a futuristic city where traditional martial arts have been banned by tech corporations, Maya is the last apprentice of a secret lineage that refuses cybernetic enhancement. When her master mysteriously disappears, she discovers her dojo's ancient training dummies—the Mokujin—have been awakened by a corrupted AI. Now they guard the secrets to her master's whereabouts. Maya must defeat these wooden guardians in intense combat, master new fighting styles, and infiltrate the corporate tower to save her master and restore true martial arts to the world.</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-primary sm:text-sm">Coming Soon</p>
+            </div>
+            <div className="order-1 lg:order-2 overflow-hidden rounded-lg bg-muted">
+              <img src={combatArtsImg} alt="Combat Arts: The last Master - Maya" className="h-auto w-full object-contain" width={500} height={667} />
+            </div>
           </div>
         </article>
 

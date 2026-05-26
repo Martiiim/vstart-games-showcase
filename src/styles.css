@@ -141,3 +141,42 @@
   50% { box-shadow: 0 0 60px oklch(0.82 0.24 142 / 0.7); }
 }
 .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+
+.games-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  justify-content: center;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.games-gallery > div {
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background-color: var(--color-muted);
+}
+
+.games-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .games-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ImageGallery rounded borders */
+[class*="ImageGridGallery"] img,
+.react-image-grid-gallery img,
+.react-image-grid-gallery div img,
+img[alt*="Simone"],
+img[alt*="simone"] {
+  border-radius: 0.75rem !important;
+}
+
+
