@@ -1,7 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useRef, useState } from "react";
+import { Volume2, VolumeX } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { ImageGallery } from "react-image-grid-gallery";
 import "react-image-grid-gallery/style.css";
 import heroImg from "@/assets/simone-hero.png";
