@@ -91,6 +91,49 @@ function Games() {
           </div>
         </article>
 
+        <article className="mt-10 overflow-hidden rounded-2xl border border-border bg-card shadow-card sm:mt-12">
+          <div className="relative bg-black">
+            <video
+              ref={videoRef}
+              src="/combat4all-trailer.mp4"
+              className="h-auto w-full"
+              autoPlay
+              loop
+              muted
+              playsInline
+              controls
+            />
+            <Button
+              type="button"
+              size="icon"
+              variant="secondary"
+              onClick={toggleAudio}
+              aria-label={muted ? "Unmute trailer" : "Mute trailer"}
+              className="absolute right-4 top-4 z-10 rounded-full shadow-lg"
+            >
+              {muted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
+            </Button>
+          </div>
+          <div className="p-5 sm:p-8">
+            <div className="flex justify-center">
+              <div className="w-full max-w-3xl">
+                <ImageGallery imagesData={combat4allImages} columnCount="auto" gapSize={12} columnWidth={280} />
+              </div>
+            </div>
+            <div className="mt-6 space-y-4">
+              <div className="flex flex-wrap items-center gap-2">
+                <Badge variant="outline">Action</Badge>
+                <Badge variant="outline">Multiplayer</Badge>
+                <Badge variant="outline">Arena Combat</Badge>
+              </div>
+              <h2 className="font-display text-xl text-foreground sm:text-2xl lg:text-3xl">Combat4all</h2>
+              <p className="text-sm text-muted-foreground sm:text-base">An adrenaline-fueled arena brawler where fighters from every corner of the world clash across wild landscapes — from neon-lit jungles to ancient ruins. Pick your hero, master unique combat styles, and battle your way to the top in our most explosive action title yet.</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-primary sm:text-sm">Coming Soon</p>
+            </div>
+          </div>
+        </article>
+
+
         <div className="mt-10 rounded-2xl border border-dashed border-border p-6 text-center sm:p-10">
           <p className="font-display text-sm text-muted-foreground">More games in development</p>
           <p className="mt-2 text-xs text-muted-foreground/70">Follow us on social to be the first to know.</p>
