@@ -1,7 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useRef, useState } from "react";
+import { Volume2, VolumeX } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { ImageGallery } from "react-image-grid-gallery";
 import "react-image-grid-gallery/style.css";
 import heroImg from "@/assets/simone-hero.png";
@@ -28,6 +31,22 @@ function Games() {
     { id: "2", src: fightImg, alt: "Simone to the Rescue - Fight" },
     { id: "3", src: forestImg, alt: "Simone to the Rescue - Forest" },
   ];
+
+  const combat4allImages = [
+    { id: "1", src: fightImg, alt: "Combat4all - Fight" },
+    { id: "2", src: forestImg, alt: "Combat4all - Forest" },
+  ];
+
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+
+  const toggleAudio = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = !v.muted;
+    setMuted(v.muted);
+    if (!v.muted && v.paused) v.play().catch(() => {});
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -71,6 +90,49 @@ function Games() {
             </div>
           </div>
         </article>
+
+        <article className="mt-10 overflow-hidden rounded-2xl border border-border bg-card shadow-card sm:mt-12">
+          <div className="relative bg-black">
+            <video
+              ref={videoRef}
+              src="/combat4all-trailer.mp4"
+              className="h-auto w-full"
+              autoPlay
+              loop
+              muted
+              playsInline
+              controls
+            />
+            <Button
+              type="button"
+              size="icon"
+              variant="secondary"
+              onClick={toggleAudio}
+              aria-label={muted ? "Unmute trailer" : "Mute trailer"}
+              className="absolute right-4 top-4 z-10 rounded-full shadow-lg"
+            >
+              {muted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
+            </Button>
+          </div>
+          <div className="p-5 sm:p-8">
+            <div className="flex justify-center">
+              <div className="w-full max-w-3xl">
+                <ImageGallery imagesData={combat4allImages} columnCount="auto" gapSize={12} columnWidth={280} />
+              </div>
+            </div>
+            <div className="mt-6 space-y-4">
+              <div className="flex flex-wrap items-center gap-2">
+                <Badge variant="outline">Action</Badge>
+                <Badge variant="outline">Multiplayer</Badge>
+                <Badge variant="outline">Arena Combat</Badge>
+              </div>
+              <h2 className="font-display text-xl text-foreground sm:text-2xl lg:text-3xl">Combat4all</h2>
+              <p className="text-sm text-muted-foreground sm:text-base">An adrenaline-fueled arena brawler where fighters from every corner of the world clash across wild landscapes — from neon-lit jungles to ancient ruins. Pick your hero, master unique combat styles, and battle your way to the top in our most explosive action title yet.</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-primary sm:text-sm">Coming Soon</p>
+            </div>
+          </div>
+        </article>
+
 
         <div className="mt-10 rounded-2xl border border-dashed border-border p-6 text-center sm:p-10">
           <p className="font-display text-sm text-muted-foreground">More games in development</p>
