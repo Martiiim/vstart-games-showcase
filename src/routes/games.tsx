@@ -32,6 +32,22 @@ function Games() {
     { id: "3", src: forestImg, alt: "Simone to the Rescue - Forest" },
   ];
 
+  const combat4allImages = [
+    { id: "1", src: fightImg, alt: "Combat4all - Fight" },
+    { id: "2", src: forestImg, alt: "Combat4all - Forest" },
+  ];
+
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+
+  const toggleAudio = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = !v.muted;
+    setMuted(v.muted);
+    if (!v.muted && v.paused) v.play().catch(() => {});
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
