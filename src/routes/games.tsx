@@ -28,8 +28,6 @@ export const Route = createFileRoute("/games")({
 function Games() {
   const simoneImages = [
     { id: "1", src: heroImg, alt: "Simone to the Rescue - Hero" },
-    { id: "2", src: fightImg, alt: "Simone to the Rescue - Fight" },
-    { id: "3", src: forestImg, alt: "Simone to the Rescue - Forest" },
   ];
 
   const combat4allImages = [
